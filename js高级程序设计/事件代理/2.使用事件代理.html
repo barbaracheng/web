@@ -1,0 +1,46 @@
+<!--
+ * @Author: leyuans
+ * @Date: 2021-10-21 17:22:00
+ * @LastEditTime: 2021-10-21 19:22:40
+ * @LastEditors: leyuans
+ * @Description: 
+ * @FilePath: \web-projects\js高级程序设计\事件代理\2.使用事件代理.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul id="myLinks">
+        <li id="goSomewhere">Go somewhere</li>
+        <li id="doSomething">Do something</li>
+        <li id="sayHi">Say hi</li>
+    </ul>
+    <script>
+        let list = document.getElementById('myLinks');
+        list.addEventListener('click', (e) => {
+            let target = e.target;
+            switch (target.id) {
+                case 'goSomewhere':
+                    console.log('go Somewhere');
+                    break;
+                case 'doSomething':
+                    console.log('do Something');
+                    break;
+                case 'sayHi':
+                    console.log('hi');
+                    break;
+                default:
+                    break;
+            }
+        });
+    </script>
+</body>
+
+</html>

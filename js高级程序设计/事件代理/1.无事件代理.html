@@ -1,0 +1,61 @@
+<!--
+ * @Author: leyuans
+ * @Date: 2021-10-21 17:15:16
+ * @LastEditTime: 2021-10-21 22:09:32
+ * @LastEditors: leyuans
+ * @Description: 
+ * @FilePath: \web-projects\js高级程序设计\事件代理\1.无事件代理.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="parent">
+        <ul id="myLinks">
+            <li id="goSomewhere">Go somewhere</li>
+            <li id="doSomething">Do something</li>
+            <li id="sayHi">Say hi</li>
+        </ul>
+    </div>
+    <script>
+        let item1 = document.getElementById('goSomewhere');
+        let item2 = document.getElementById('doSomething');
+        let item3 = document.getElementById('sayHi');
+        let list = document.getElementById('myLinks');
+        let parent = document.getElementById('parent');
+        // console.log(parent);
+        parent.addEventListener('click', (e) => {
+            console.log('parent');
+            // e.stopImmediatePropagation();
+            // e.stopPropagation();
+        });
+
+        list.addEventListener('click', (e) => {
+            console.log('ul');
+            // e.stopImmediatePropagation();
+        })
+        item1.addEventListener('click', (event) => {
+            // console.log(event);
+            alert('goSomewhere');
+        });
+        item2.addEventListener('click', (e) => {
+            // console.log(e);
+            alert('doSomething');
+            // e.stopImmediatePropagation();
+            e.stopPropagation();
+        });
+        item3.addEventListener('click', (e) => {
+            // console.log(e);
+            alert('hi');
+        })
+    </script>
+</body>
+
+</html>
