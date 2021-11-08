@@ -1,0 +1,95 @@
+<!--
+ * @Author: leyuans
+ * @Date: 2021-05-29 09:54:10
+ * @LastEditTime: 2021-05-29 10:44:25
+ * @LastEditors: leyuans
+ * @Description: 
+ * @FilePath: \web-projects\Canvas绘图\画矩形\index.html
+-->
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>绘制矩形</title>
+    <style>
+        #canvas {
+            border: 1px solid #aaaaaa;
+            display: block;
+            margin: 50px auto;
+            
+        }
+    </style>
+</head>
+<body>
+    <div id="canvas-wrap">
+        <canvas id="canvas" width="800" height="600">
+            您的浏览器不支持canvas标签，请升级浏览器或换一个更高级的浏览器。
+        </canvas>
+    </div>
+
+    <script>
+        // window.onload = function () {
+        //     var canvas = document.getElementById("canvas");
+        //     var context = canvas.getContext("2d");
+
+        //     context.beginPath();
+        //     context.moveTo(150,50);
+        //     context.lineTo(300,50);
+        //     context.lineTo(300,150);
+        //     context.lineTo(150,150);
+        //     // context.lineTo(150,50); //绘制矩形的最后一笔
+        //     context.closePath(); //使用closePath闭合图形，最后一笔可以不画
+
+        //     context.lineWidth = 5;
+        //     context.strokeStyle = "black";
+        //     //使用fillStyle选择填充颜色,使用fill()填充
+        //     context.fillStyle = "yellow";
+
+        //     context.stroke();
+        //     context.fill();
+        // }
+
+        //使用封装的rect()方法绘制矩形
+        window.onload = function () {
+            var canvas = document.getElementById("canvas");
+            var context = canvas.getContext("2d");
+
+            context.beginPath();
+            context.rect(150,100,100,100);
+            // context.closePath(); //可以不用
+
+            context.strokeStyle = "black";
+            context.fillStyle = "pink";
+            context.lineWidth = 5;
+
+            context.fill();
+            context.stroke();
+        }
+
+        //自己封装一个绘制矩形的方法
+        function drawRect(ctx,x,y,width,height,borderColor,fillColor,borderWidth) {
+            ctx.beginPath();
+            ctx.rect(x,y,width,height);
+            //ctx.closePath();
+
+            ctx.fillStyle = fillColor;
+            ctx.strokeStyle = borderColor;
+            ctx.lineWidth = borderWidth;
+
+            ctx.fill();
+            ctx.stroke();
+        }
+        window.onload = function () {
+            var canvas = document.getElementById("canvas");
+            var ctx = canvas.getContext("2d");
+            drawRect(ctx,100,100,100,100,"red","yellow",5);
+            drawRect(ctx,300,100,100,100,"yellow","pink",10);
+        }
+
+        
+    </script>
+</body>
+</html>

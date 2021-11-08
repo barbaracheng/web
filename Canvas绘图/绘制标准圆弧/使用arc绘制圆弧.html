@@ -1,0 +1,82 @@
+<!--
+ * @Author: leyuans
+ * @Date: 2021-05-31 19:23:15
+ * @LastEditTime: 2021-05-31 20:15:38
+ * @LastEditors: leyuans
+ * @Description: 
+ * @FilePath: \web-projects\Canvas绘图\绘制标准圆弧\使用arc绘制圆弧.html
+-->
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>可爱的画布</title>
+    <style>
+        body {
+            background-image: url("4469d9291cc6bec3.jpg");
+            background-repeat: repeat;
+        }
+
+        #canvas {
+            border: 1px solid #cccccc;
+            margin: 50px auto;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="canvas-wrap">
+        <canvas id="canvas">
+            您的浏览器不支持canvas，请升级浏览器或者更换浏览器试试。
+        </canvas>
+    </div>
+
+    <script>
+        window.onload = function () {
+            var canvas = document.getElementById("canvas");
+            canvas.width = 800;
+            canvas.height = 600;
+            var context = canvas.getContext("2d");
+            context.fillStyle = "#fff";
+            context.fillRect(0,0,800,600);
+
+            //画一个圆形
+            context.beginPath();
+            context.arc(200,200,100,0,2*Math.PI,false);
+            context.fillStyle = "pink";
+            context.strokeStyle = "yellow";
+            context.stroke();
+            context.fill();
+
+            //画一个半圆
+            context.beginPath();
+            context.arc(410,200,100,0,Math.PI,true);
+            context.fillStyle = "yellow";
+            context.strokeStyle = "pink";
+            context.fill();
+            context.stroke();
+
+            //画一个3/4圆
+            context.beginPath();
+            context.arc(200,420,100,0*Math.PI,1.5*Math.PI);
+            context.strokeStyle = "blue";
+            context.fillStyle = "green";
+            context.fill();
+            context.stroke();
+
+            //画一个1/4圆
+            context.beginPath();
+            context.arc(410,420,100,0,0.5*Math.PI);
+            context.fillStyle = "red";
+            context.strokeStyle = "pink";
+            context.fill();
+            context.stroke();
+
+
+
+        }
+    </script>
+</body>
+</html>

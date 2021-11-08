@@ -1,0 +1,72 @@
+<!--
+ * @Author: leyuans
+ * @Date: 2021-05-31 20:18:22
+ * @LastEditTime: 2021-05-31 22:00:52
+ * @LastEditors: leyuans
+ * @Description: 
+ * @FilePath: \web-projects\Canvas绘图\绘制标准圆弧\圆角矩形.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>绘制圆角矩形</title>
+    <style>
+        body {
+            background-image: url("4469d9291cc6bec3.jpg");
+            background-repeat: repeat;
+        }
+
+        #canvas {
+            border: 1px solid #ecc3c3;
+            margin: 50px auto;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="canvas-wrap">
+        <canvas id="canvas">
+            您的浏览器不支持canvas，请升级浏览器或者更换浏览器试试。
+        </canvas>
+    </div>
+    <script>
+        window.onload = function () {
+            var canvas = document.getElementById("canvas");
+            canvas.width = 800;
+            canvas.height = 600;
+            var context = canvas.getContext("2d");
+            context.fillStyle = "#fff";
+            context.fillRect(0,0,800,600);
+
+            drawRoundRect(context,200,100,400,400,10);
+            context.fillStyle = "#ecc3c3";
+            context.fill();
+
+            for (let i = 0; i < 4; i++) {
+                for (let j = 0; j < 4; j++) {
+                    drawRoundRect(context,212+i*(12+85),112+j*(12+85),85,85,10);
+                    context.fillStyle = "#e99fa8";
+                    context.fill();
+                } 
+            }
+        }
+
+            function drawRoundRect(ctx,x,y,width,height,radius) {
+                ctx.beginPath();
+                ctx.arc(x + radius, y + radius, radius, Math.PI, Math.PI * 3 / 2);
+                ctx.lineTo(width - radius + x, y);
+                ctx.arc(width - radius + x, radius + y, radius, Math.PI * 3 / 2, Math.PI * 2);
+                ctx.lineTo(width + x, height + y - radius);
+                ctx.arc(width - radius + x, height - radius + y, radius, 0, Math.PI * 1 / 2);
+                ctx.lineTo(radius + x, height + y);
+                ctx.arc(radius + x, height - radius + y, radius, Math.PI * 1 / 2, Math.PI);
+                ctx.closePath();
+            }
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!--
+ * @Author: leyuans
+ * @Date: 2021-06-04 09:05:13
+ * @LastEditTime: 2021-06-04 09:19:28
+ * @LastEditors: leyuans
+ * @Description: 
+ * @FilePath: \web-projects\Canvas绘图\绘制一个笑脸\index.html
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>画一个笑脸</title>
+    <script>
+        function draw() {
+            var canvas = document.getElementById("canvas");
+            if (canvas.getContext) {
+                var context = canvas.getContext("2d");
+                context.beginPath();
+                context.arc(75,75,50,0,Math.PI * 2,true);//绘制圆脸,true表示逆时针，false表示顺时针
+                context.moveTo(110,75); //将画笔移动到下一个圆
+                context.arc(75,75,35,0,Math.PI,false);//画嘴巴
+                context.moveTo(65,65);
+                context.arc(60,65,5,0,Math.PI*2,true); //画左眼
+                context.moveTo(95,65);
+                context.arc(90,65,5,0,Math.PI*2,true) //画右眼
+                context.stroke(); //绘制路径，描边
+            } 
+        }
+    </script>
+    <style type="text/css">
+        canvas { border: 1px solid black; }
+      </style>
+</head>
+<body onload="draw();">
+    <canvas id="canvas" width="150" height="150"></canvas>
+</body>
+</html>

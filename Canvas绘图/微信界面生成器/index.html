@@ -1,0 +1,301 @@
+<!--
+ * @Author: leyuans
+ * @Date: 2021-06-01 10:37:18
+ * @LastEditTime: 2021-06-03 17:26:41
+ * @LastEditors: leyuans
+ * @Description: 
+ * @FilePath: \web-projects\Canvas绘图\微信界面生成器\index.html
+-->
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>微信界面生成器</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script async src="js/canvas.js"></script>
+    <script async src="js/loadImg.js"></script>
+</head>
+<body>
+    <header>
+        <div class="title-wrap">
+            <div class="title">
+                <h1>微信界面生成器</h1>
+                <p>By leyuans</p>
+                <div class="link-btn">
+                    <a class="start" id="start" href="#select1">开始生成你的界面叭</a>
+                </div>  
+            </div> 
+        </div>
+    </header>
+    <main id="mian">
+        <section class="icon">
+            <div class="myicon" id="myicon">
+                <p>我的头像</p>
+                <div id="preview1">
+                    <img id="imgHead1" width="40" height="40" border=0 src="<%=request.getContextPath()%>/images/face2.jpg" alt=""/>
+                </div>
+                <input type="file" onchange=previewImage1(this)>
+            </div>
+            <div class="hisicon">
+                <p>对方的头像</p>
+                <div id="preview2">
+                    <img id="imgHead2" width="40" height="40" border=0 src="<%=requets.getContextPath()%>/images/face1.jpg" alt="">
+                </div>
+                <input type="file" onchange=previewImage2(this)>
+            </div>
+            <label for="hisname">对方的名称：
+                <input id="hisname" type="text">
+            </label>
+            
+        </section>
+
+        <section class="chatRecord" >
+            <!-- chat1 -->
+            <div class="chat">
+                <label for="">
+                    <input type="checkbox" id="check1" name="chat1" value="1">
+                    <select id="select1">
+                        <option value="me">我</option>
+                        <option value="he">对方</option>
+                    </select>
+                </label>
+                <label for="time1" class="time"></label>
+                <input id="time1" type="hidden" value="">
+
+                <label for="content1">发送内容：</label>
+                <textarea id="content1" cols="25" rows="2" maxlength="35"></textarea>
+
+                <div class="expression" id="ex1">
+                    <img id="exp11" alt="加载失败！" src="images/exp/1.png" onClick="expClicked(11)"/>
+                    <img id="exp12" alt="加载失败！" src="images/exp/2.png" onClick="expClicked(12)"/>
+                    <img id="exp13" alt="加载失败！" src="images/exp/3.png" onClick="expClicked(13)"/>
+                    <img id="exp14" alt="加载失败！" src="images/exp/4.png" onClick="expClicked(14)"/>
+                    <img id="exp15" alt="加载失败！" src="images/exp/5.png" onClick="expClicked(15)"/>
+                    <img id="exp16" alt="加载失败！" src="images/exp/6.png" onClick="expClicked(16)"/>
+                    <img id="exp17" alt="加载失败！" src="images/exp/7.png" onClick="expClicked(17)"/>
+                    <img id="exp18" alt="加载失败！" src="images/exp/8.png" onClick="expClicked(18)"/>
+                    <img id="exp19" class="imgClicked" alt="加载失败！" src="images/exp/9.png" onClick="expClicked(19)"/>
+                </div>
+            </div>
+
+            <!-- chat2 -->
+            <div class="chat">
+                <label for="">
+                    <input type="checkbox" id="check2" name="chat2" value="2">
+                    <select id="select2">
+                        <option value="me">我</option>
+                        <option value="he">对方</option>
+                    </select>
+                </label>
+                <label for="time2">发送时间（不显示就留空）：</label>
+                <input type="datetime-local" id="time2">
+                
+                <label for="content2">发送内容：</label>
+                <textarea name="" id="content2" cols="25" rows="2" maxlength="35"></textarea>
+
+                <div class="expression" id="ex2">
+                    <img id="exp21" alt="加载失败！" src="images/exp/1.png" onClick="expClicked(21)"/>
+                    <img id="exp22" alt="加载失败！" src="images/exp/2.png" onClick="expClicked(22)"/>
+                    <img id="exp23" alt="加载失败！" src="images/exp/3.png" onClick="expClicked(23)"/>
+                    <img id="exp24" alt="加载失败！" src="images/exp/4.png" onClick="expClicked(24)"/>
+                    <img id="exp25" alt="加载失败！" src="images/exp/5.png" onClick="expClicked(25)"/>
+                    <img id="exp26" alt="加载失败！" src="images/exp/6.png" onClick="expClicked(26)"/>
+                    <img id="exp27" alt="加载失败！" src="images/exp/7.png" onClick="expClicked(27)"/>
+                    <img id="exp28" alt="加载失败！" src="images/exp/8.png" onClick="expClicked(28)"/>
+                    <img id="exp29" class="imgClicked" alt="加载失败！" src="images/exp/9.png" onClick="expClicked(29)"/>
+                </div>
+
+            </div>
+
+            <!-- chat3 -->
+            <div class="chat">
+                <label for="">
+                    <input type="checkbox" id="check3" name="chat3" value="3">
+                    <select id="select3">
+                        <option value="me">我</option>
+                        <option value="he">对方</option>
+                    </select>
+                </label>
+                <label for="time3">发送时间（不显示就留空）：</label>
+                <input type="datetime-local" id="time3">
+                
+                <label for="content3">发送内容：</label>
+                <textarea name="" id="content3" cols="25" rows="2" maxlength="35"></textarea>
+
+                <div class="expression" id="ex3">
+                    <img id="exp31" alt="加载失败！" src="images/exp/1.png" onClick="expClicked(31)"/>
+                    <img id="exp32" alt="加载失败！" src="images/exp/2.png" onClick="expClicked(32)"/>
+                    <img id="exp33" alt="加载失败！" src="images/exp/3.png" onClick="expClicked(33)"/>
+                    <img id="exp34" alt="加载失败！" src="images/exp/4.png" onClick="expClicked(34)"/>
+                    <img id="exp35" alt="加载失败！" src="images/exp/5.png" onClick="expClicked(35)"/>
+                    <img id="exp36" alt="加载失败！" src="images/exp/6.png" onClick="expClicked(36)"/>
+                    <img id="exp37" alt="加载失败！" src="images/exp/7.png" onClick="expClicked(37)"/>
+                    <img id="exp38" alt="加载失败！" src="images/exp/8.png" onClick="expClicked(38)"/>
+                    <img id="exp39" class="imgClicked" alt="加载失败！" src="images/exp/9.png" onClick="expClicked(39)"/>
+                </div>
+            </div>
+
+            <div class="chat">
+                <label for="">
+                    <input type="checkbox" id="check4" name="chat4" value="4">
+                    <select id="select4">
+                        <option value="me">我</option>
+                        <option value="he">对方</option>
+                    </select>
+                </label>
+                <label for="time4">发送时间（不显示就留空）：</label>
+                <input type="datetime-local" name="" id="time4">
+                
+                <label for="content4">发送内容：</label>
+                <textarea name="" id="content4" cols="25" rows="2" maxlength="35"></textarea>
+
+                <div class="expression" id="ex4">
+                    <img id="exp41" alt="加载失败！" src="images/exp/1.png" onClick="expClicked(41)"/>
+                    <img id="exp42" alt="加载失败！" src="images/exp/2.png" onClick="expClicked(42)"/>
+                    <img id="exp43" alt="加载失败！" src="images/exp/3.png" onClick="expClicked(43)"/>
+                    <img id="exp44" alt="加载失败！" src="images/exp/4.png" onClick="expClicked(44)"/>
+                    <img id="exp45" alt="加载失败！" src="images/exp/5.png" onClick="expClicked(45)"/>
+                    <img id="exp46" alt="加载失败！" src="images/exp/6.png" onClick="expClicked(46)"/>
+                    <img id="exp47" alt="加载失败！" src="images/exp/7.png" onClick="expClicked(47)"/>
+                    <img id="exp48" alt="加载失败！" src="images/exp/8.png" onClick="expClicked(48)"/>
+                    <img id="exp49" class="imgClicked" alt="加载失败！" src="images/exp/9.png" onClick="expClicked(49)"/>
+                </div>
+            </div>
+
+            <div class="chat">
+                <label for="">
+                    <input type="checkbox" id="check5" name="chat5" value="5">
+                    <select id="select5">
+                        <option value="me">我</option>
+                        <option value="he">对方</option>
+                    </select>
+                </label>
+                <label for="time5">发送时间（不显示就留空）：</label>
+                <input type="datetime-local" id="time5">
+                
+                <label for="content5">发送内容：</label>
+                <textarea name="" id="content5" cols="25" rows="2" maxlength="35"></textarea>
+
+                <div class="expression" id="ex5">
+                    <img id="exp51" alt="加载失败！" src="images/exp/1.png" onClick="expClicked(51)"/>
+                    <img id="exp52" alt="加载失败！" src="images/exp/2.png" onClick="expClicked(52)"/>
+                    <img id="exp53" alt="加载失败！" src="images/exp/3.png" onClick="expClicked(53)"/>
+                    <img id="exp54" alt="加载失败！" src="images/exp/4.png" onClick="expClicked(54)"/>
+                    <img id="exp55" alt="加载失败！" src="images/exp/5.png" onClick="expClicked(55)"/>
+                    <img id="exp56" alt="加载失败！" src="images/exp/6.png" onClick="expClicked(56)"/>
+                    <img id="exp57" alt="加载失败！" src="images/exp/7.png" onClick="expClicked(57)"/>
+                    <img id="exp58" alt="加载失败！" src="images/exp/8.png" onClick="expClicked(58)"/>
+                    <img id="exp59" class="imgClicked" alt="加载失败！" src="images/exp/9.png" onClick="expClicked(59)"/>
+                </div>
+            </div>
+
+            <div class="chat">
+                <label for="">
+                    <input type="checkbox" id="check6" name="chat6" value="6">
+                    <select id="select6">
+                        <option value="me">我</option>
+                        <option value="he">对方</option>
+                    </select>
+                </label>
+                <label for="time6">发送时间（不显示就留空）：</label>
+                <input type="datetime-local" id="time6">
+                
+                <label for="content6">发送内容：</label>
+                <textarea name="" id="content6" cols="25" rows="2" maxlength="35"></textarea>
+
+                <div class="expression" id="ex6">
+                    <img id="exp61" alt="加载失败！" src="images/exp/1.png" onClick="expClicked(61)"/>
+                    <img id="exp62" alt="加载失败！" src="images/exp/2.png" onClick="expClicked(62)"/>
+                    <img id="exp63" alt="加载失败！" src="images/exp/3.png" onClick="expClicked(63)"/>
+                    <img id="exp64" alt="加载失败！" src="images/exp/4.png" onClick="expClicked(64)"/>
+                    <img id="exp65" alt="加载失败！" src="images/exp/5.png" onClick="expClicked(65)"/>
+                    <img id="exp66" alt="加载失败！" src="images/exp/6.png" onClick="expClicked(66)"/>
+                    <img id="exp67" alt="加载失败！" src="images/exp/7.png" onClick="expClicked(67)"/>
+                    <img id="exp68" alt="加载失败！" src="images/exp/8.png" onClick="expClicked(68)"/>
+                    <img id="exp69" class="imgClicked" alt="加载失败！" src="images/exp/9.png" onClick="expClicked(69)"/>
+                </div>
+            </div>
+
+            <div class="chat">
+                <label for="">
+                    <input type="checkbox" id="check7" name="chat7" value="7">
+                    <select id="select7">
+                        <option value="me">我</option>
+                        <option value="he">对方</option>
+                    </select>
+                </label>
+                <label for="time7">发送时间（不显示就留空）：</label>
+                <input type="datetime-local" id="time7">
+                
+                <label for="content7">发送内容：</label>
+                <textarea name="" id="content7" cols="25" rows="2" maxlength="35"></textarea>
+
+                <div class="expression" id="ex7">
+                    <img id="exp71" alt="加载失败！" src="images/exp/1.png" onClick="expClicked(71)"/>
+                    <img id="exp72" alt="加载失败！" src="images/exp/2.png" onClick="expClicked(72)"/>
+                    <img id="exp73" alt="加载失败！" src="images/exp/3.png" onClick="expClicked(73)"/>
+                    <img id="exp74" alt="加载失败！" src="images/exp/4.png" onClick="expClicked(74)"/>
+                    <img id="exp75" alt="加载失败！" src="images/exp/5.png" onClick="expClicked(75)"/>
+                    <img id="exp76" alt="加载失败！" src="images/exp/6.png" onClick="expClicked(76)"/>
+                    <img id="exp77" alt="加载失败！" src="images/exp/7.png" onClick="expClicked(77)"/>
+                    <img id="exp78" alt="加载失败！" src="images/exp/8.png" onClick="expClicked(78)"/>
+                    <img id="exp79" class="imgClicked" alt="加载失败！" src="images/exp/9.png" onClick="expClicked(79)"/>
+                </div>
+            </div>
+
+            <div class="chat">
+                <label for="">
+                    <input type="checkbox" id="check8" name="chat8" value="8">
+                    <select id="select8">
+                        <option value="me">我</option>
+                        <option value="he">对方</option>
+                    </select>
+                </label>
+                <label for="time8">发送时间（不显示就留空）：</label>
+                <input type="datetime-local" id="time8">
+                
+                <label for="content8">发送内容：</label>
+                <textarea name="" id="content8" cols="25" rows="2" maxlength="35"></textarea>
+
+                <div class="expression" id="ex8">
+                    <img id="exp81" alt="加载失败！" src="images/exp/1.png" onClick="expClicked(81)"/>
+                    <img id="exp82" alt="加载失败！" src="images/exp/2.png" onClick="expClicked(82)"/>
+                    <img id="exp83" alt="加载失败！" src="images/exp/3.png" onClick="expClicked(83)"/>
+                    <img id="exp84" alt="加载失败！" src="images/exp/4.png" onClick="expClicked(84)"/>
+                    <img id="exp85" alt="加载失败！" src="images/exp/5.png" onClick="expClicked(85)"/>
+                    <img id="exp86" alt="加载失败！" src="images/exp/6.png" onClick="expClicked(86)"/>
+                    <img id="exp87" alt="加载失败！" src="images/exp/7.png" onClick="expClicked(87)"/>
+                    <img id="exp88" alt="加载失败！" src="images/exp/8.png" onClick="expClicked(88)"/>
+                    <img id="exp89" class="imgClicked" alt="加载失败！" src="images/exp/9.png" onClick="expClicked(89)"/>
+                </div>
+            </div>
+            <div class="start-canvas">
+                <button id="loadImg" onclick="putContentView(ctx)">开始生成图片叭</button>
+            </div>
+
+        </section>
+    </main>
+    <footer>
+        <section id="produce">
+            <div class="Photo">
+                <h2>生成图片区</h2>
+                <div class="photo">
+                    <canvas id="canvas" width="375" height="667">
+                        该浏览器暂不支持canvas，请升级浏览器或更换浏览器试试。
+                    </canvas>
+                </div>
+            </div>
+        </section>
+        <div class="copyright">
+            <p>&copy;leyuan 2021/6/2</p>
+        </div>
+    </footer>
+
+    <script>
+        var canvas = document.getElementById("canvas");
+        var ctx = canvas.getContext("2d");
+    </script>
+</body>
+</html>

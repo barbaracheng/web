@@ -1,0 +1,42 @@
+<!--
+ * @Author: leyuans
+ * @Date: 2021-06-04 09:27:12
+ * @LastEditTime: 2021-06-04 09:37:58
+ * @LastEditors: leyuans
+ * @Description: 
+ * @FilePath: \web-projects\Canvas绘图\绘制三角形\triangle.html
+-->
+<html>
+  <head>
+    <title>绘制三角形</title>
+    <script type="text/javascript">
+      function draw(){
+        var canvas = document.getElementById('canvas');
+        if (canvas.getContext){
+          var ctx = canvas.getContext('2d');
+          
+          //绘制填充三角形
+          ctx.moveTo(20,20);
+          ctx.lineTo(100,20);
+          ctx.lineTo(20,100);
+          ctx.fill();
+
+          //绘制边框三角形
+          ctx.moveTo(120,20);
+          ctx.lineTo(120,100);
+          ctx.lineTo(40,100);
+        //   ctx.lineTo(120,20);
+          ctx.closePath();
+          ctx.stroke();
+
+        }
+      }
+    </script>
+    <style type="text/css">
+      canvas { border: 1px solid black; }
+    </style>
+  </head>
+  <body onload="draw();">
+    <canvas id="canvas" width="150" height="150"></canvas>
+  </body>
+</html>

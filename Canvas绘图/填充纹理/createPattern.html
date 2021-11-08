@@ -1,0 +1,47 @@
+<!--
+ * @Author: leyuans
+ * @Date: 2021-05-31 09:46:54
+ * @LastEditTime: 2021-06-02 16:49:12
+ * @LastEditors: leyuans
+ * @Description: 
+ * @FilePath: \web-projects\Canvas绘图\填充纹理\createPattern.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>createPattern()方法</title>
+</head>
+<body>
+    <div id="canvas-wrap">
+        <canvas id="canvas" style="display: block; margin: 50px auto; border: 1px solid #ccc;">
+            您的浏览器不支持canvas，请升级浏览器或更换浏览器试试。
+        </canvas>
+    </div>
+
+    <script>
+        window.onload = function () {
+            var canvas = document.getElementById("canvas");
+            canvas.width = 800;
+            canvas.height = 600;
+            var cxt = canvas.getContext("2d");
+
+            cxt.beginPath();
+            cxt.rect(0, 0, 375, 43);
+            cxt.fillStyle = "rgb(44, 44, 44)";
+            cxt.fill();
+
+            cxt.beginPath();
+            var img = new Image();
+            img.src = "4469d9291cc6bec3.jpg";
+            img.onload = function () {
+                var pattern = cxt.createPattern(img, "no-repeat");
+                cxt.fillStyle = pattern;
+                cxt.fillRect(0,0,800,600);
+            }
+        }
+    </script>
+</body>
+</html>

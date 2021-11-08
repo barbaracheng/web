@@ -1,0 +1,101 @@
+<!--
+ * @Author: leyuans
+ * @Date: 2021-05-29 10:45:12
+ * @LastEditTime: 2021-05-29 18:35:26
+ * @LastEditors: leyuans
+ * @Description: 
+ * @FilePath: \web-projects\Canvas绘图\画矩形\眼花缭乱正方形.html
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>让人眼花缭乱的正方形（盯久了看的眼睛会花）</title>
+    <style>
+        #canvas {
+            border: 1px solid #aaaaaa;
+            margin: 50px auto;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="canvas-wrap">
+        <canvas id="canvas" width="800" height="600">
+            您的浏览器不支持canvas，请升级或更换浏览器试试。
+        </canvas>
+    </div>
+
+    <script>
+         //自己封装一个绘制矩形的方法
+         function drawRect(ctx,x,y,width,height,borderColor,fillColor,borderWidth) {
+            ctx.beginPath();
+            ctx.rect(x,y,width,height);
+            //ctx.closePath();
+
+            ctx.fillStyle = fillColor;
+            ctx.strokeStyle = borderColor;
+            ctx.lineWidth = borderWidth;
+
+            ctx.fill();
+            ctx.stroke();
+        }
+        window.onload = function () {
+            var canvas = document.getElementById("canvas");
+            var ctx = canvas.getContext("2d");
+
+            /*
+            * 给画布添加背景颜色
+            */
+            ctx.beginPath();
+            ctx.rect(0,0,800,600);
+            ctx.fillStyle = "pink";
+            ctx.fill();
+
+            /*
+            * 绘制多个矩形
+            */
+            ctx.beginPath();
+            for (let i = 0; i < 20; i++) {
+                drawWhiteRect(ctx,200 + 10 * i,100 + 10 * i,400 - 20 * i,400 - 20 * i);
+                drawBlackRect(ctx,205 + 10 * i,105 + 10 * i,390 - 20 * i,390 - 20 * i);
+            }
+
+            /*
+            * 给最中间的正方形绘制颜色
+            */
+           ctx.beginPath();
+           ctx.rect(395,295,10,10);
+           ctx.fillStyle = "black";
+           ctx.strokeStyle = "black";
+           ctx.lineWidth = 5;
+
+           ctx.fill();
+           ctx.stroke();
+        }
+
+        function drawWhiteRect(context,x,y,width,height) {
+            context.beginPath();
+            context.rect(x,y,width,height);
+
+            context.strokeStyle = "white";
+            context.lineWidth = 5;
+
+            context.stroke();
+        }
+
+        function drawBlackRect(context,x,y,width,height) {
+            context.beginPath();
+            context.rect(x,y,width,height);
+            
+            context.strokeStyle = "black";
+            context.lineWidth = 5;
+
+            context.stroke();
+        }
+    </script>
+</body>
+</html>

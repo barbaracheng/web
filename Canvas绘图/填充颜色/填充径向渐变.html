@@ -1,0 +1,55 @@
+<!--
+ * @Author: leyuans
+ * @Date: 2021-05-31 09:34:29
+ * @LastEditTime: 2021-05-31 09:44:33
+ * @LastEditors: leyuans
+ * @Description: 
+ * @FilePath: \web-projects\Canvas绘图\填充颜色\填充径向渐变.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>填充径向渐变</title>
+    <style>
+        #canvas {
+            border: 1px solid #cccccc;
+            margin: 50px auto;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="canvas-wrap">
+        <canvas id="canvas">
+            您的浏览器不支持canvas动画，请升级浏览器或更换浏览器试试。
+        </canvas>
+    </div>
+
+    <script>
+        window.onload = function () {
+            var canvas = document.getElementById("canvas");
+            canvas.width = 800;
+            canvas.height = 600;
+            var context = canvas.getContext("2d");
+
+            //添加渐变线
+            var grd = context.createRadialGradient(400,300,100,400,300,200);
+
+            //添加颜色断点
+            grd.addColorStop(0,"pink");
+            grd.addColorStop(0.25,"white");
+            grd.addColorStop(0.5,"aqua");
+            grd.addColorStop(0.75,"fuchsia");
+            grd.addColorStop(0.25,"teal");
+
+            //应用渐变
+            context.fillStyle = grd;
+
+            context.fillRect(100,100,600,400);
+        }
+    </script>
+</body>
+</html>

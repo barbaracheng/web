@@ -1,0 +1,122 @@
+<!--
+ * @Author: leyuans
+ * @Date: 2021-05-22 17:12:12
+ * @LastEditTime: 2021-05-22 23:36:17
+ * @LastEditors: leyuans
+ * @Description: 
+ * @FilePath: \web-projects\Canvas绘图\画折线\index.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>画折线</title>
+    <style>
+        #canvas {
+            border: 1px solid #aaaaaa;
+            display: block;
+            margin: 50px auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap-canvas">
+        <canvas id="canvas">
+            您的浏览器暂不支持canvas，请升级浏览器或者换一个浏览器试试。
+        </canvas>
+    </div>
+    <!-- <script>
+        window.onload = function () {
+            var canvas = document.getElementById("canvas");
+            canvas.width = 800;
+            canvas.height = 600;
+            var context = canvas.getContext("2d");
+            console.log(context);
+            context.moveTo(100,100);
+            context.lineTo(350,200);
+            context.lineTo(350,500);
+            context.lineWidth = 5;
+            context.strokeStyle = "red";
+            context.stroke();
+        }
+    </script> -->
+
+    <!-- <script>
+        window.onload = function () {
+            var canvas = document.getElementById("canvas");
+            canvas.width = 800;
+            canvas.height = 600;
+            var context = canvas.getContext("2d");
+
+            /* canvas是基于状态的绘图，每次使用stroke时，都会把之前设置的状态在绘制一遍。
+            第一次调用canvas.stroke()时，绘制一条红色的折线；
+            第二次调用canvas.stroke()时，会重新绘制之前的折线，但是此时画笔是蓝色的，所以出现了蓝色的折线，
+            也就是说strokeStyle()属性被覆盖了；
+            第三次调用canvas.stroke()时，会重现绘制前两次的折线，画笔是绿色的，所以都是绿色的折线，
+            这三条折线，一共被绘制了1+2+3=6次
+
+            */
+            context.moveTo(100,100);
+            context.lineTo(350,200);
+            context.lineTo(350,500);
+            context.lineWidth = 5;
+            context.strokeStyle = "red";
+            context.stroke();
+
+            context.moveTo(200,200);
+            context.lineTo(200,300);
+            context.lineTo(400,400);
+            context.lineWidth = 5;
+            context.strokeStyle = "blue";
+            context.stroke();
+
+            context.moveTo(300,300);
+            context.lineTo(300,400);
+            context.lineTo(400,500);
+            context.lineWidth = 5;
+            context.strokeStyle = "green";
+            context.stroke();
+            
+        }
+    </script> -->
+    <!-- 要解决上面的问题，只需要在每次绘制之前加上beginPath()，
+        代表下次绘制的起始之处为beginPath之后的代码，
+        我们在三次绘制之前都加上context.beginPath() -->
+    <script>
+        window.onload = function () {
+            var canvas = document.getElementById("canvas");
+            canvas.width = 800;
+            canvas.height = 600;
+            var context = canvas.getContext("2d");
+
+            context.beginPath();//代表下次绘制的起始之处
+            context.moveTo(100,100);
+            context.lineTo(350,200);
+            context.lineTo(350,500);
+            context.lineWidth = 5;
+            context.strokeStyle = "red";
+            context.stroke();
+
+            context.beginPath();
+            context.moveTo(200,200);
+            context.lineTo(200,300);
+            context.lineTo(400,400);
+            context.lineWidth = 5;
+            context.strokeStyle = "blue";
+            context.stroke();
+
+            context.beginPath();
+            context.moveTo(300,300);
+            context.lineTo(300,400);
+            context.lineTo(400,500);
+            context.lineWidth = 5;
+            context.strokeStyle = "green";
+            context.stroke();
+            
+        }
+    </script>
+
+</body>
+</html>

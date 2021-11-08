@@ -1,0 +1,69 @@
+<!--
+ * @Author: leyuans
+ * @Date: 2021-05-31 22:01:56
+ * @LastEditTime: 2021-05-31 22:15:21
+ * @LastEditors: leyuans
+ * @Description: 
+ * @FilePath: \web-projects\Canvas绘图\使用切点绘制圆弧\arcTo().html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>绘制弧线</title>
+    <style>
+        body {
+            background-image: url("../images/cutebear.jpg");
+            background-repeat: repeat;
+        }
+
+        #canvas {
+            border: 1px solid #cccccc;
+            margin: 50px auto;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="canvas-wrap">
+        <canvas id="canvas">
+            您的浏览器不支持canvas，请升级浏览器或者更换浏览器试试。
+        </canvas>
+    </div>
+
+    <script>
+        window.onload = function () {
+            var canvas = document.getElementById("canvas");
+            canvas.width = 800;
+            canvas.height = 600;
+            var context = canvas.getContext("2d");
+            context.fillStyle = "#fff";
+            context.fillRect(0,0,800,600);
+
+            drawArcTo(context,200, 200, 600, 200, 600, 400, 100);
+
+        }
+
+        function drawArcTo(ctx,x0,y0,x1,y1,x2,y2,r) {
+            ctx.beginPath();
+            ctx.moveTo(x0,y0);
+            ctx.arcTo(x1,y1,x2,y2,r);
+
+            ctx.lineWidth = 6;
+            ctx.strokeStyle = "red";
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.moveTo(x0,y0);
+            ctx.lineTo(x1,y1);
+            ctx.lineTo(x2,y2);
+
+            ctx.lineWidth = 1;
+            ctx.strokeStyle = "pink";
+            ctx.stroke();
+        }
+    </script>
+</body>
+</html>

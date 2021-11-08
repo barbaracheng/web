@@ -1,0 +1,53 @@
+<!--
+ * @Author: leyuans
+ * @Date: 2021-05-29 19:46:01
+ * @LastEditTime: 2021-05-29 20:48:02
+ * @LastEditors: leyuans
+ * @Description: 
+ * @FilePath: \web-projects\Canvas绘图\线条的属性\index.html
+-->
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>线条的属性</title>
+</head>
+<body>
+    <div class="main">
+        <article>
+            <h1>
+                线条属性概述
+            </h1>
+            <p>
+                线条的属性共有以下四个：
+            </p>
+            <h2>1、lineCap属性</h2>
+            <p>
+                lineCap 定义上下文中线的端点，可以有以下 3 个值。
+                <ul>
+                    <li>butt：默认值，端点是垂直于线段边缘的平直边缘。</li>
+                    <li>round：端点是在线段边缘处以线宽为直径的半圆。</li>
+                    <li>square：端点是在选段边缘处以线宽为长、以一半线宽为宽的矩形。</li>
+                </ul>
+            </p>
+            <h2>2、 lineJoin属性</h2>
+            <p>
+                lineJoin 定义两条线相交产生的拐角，可将其称为连接。在连接处创建一个填充三角形，可以使用 lineJoin 设置它的基本属性。
+                <ul>
+                    <li>miter：默认值，在连接处边缘延长相接。miterLimit 是角长和线宽所允许的最大比例(默认是 10)。</li>
+                    <li>bevel：连接处是一个对角线斜角。</li>
+                    <li>round：连接处是一个圆。</li>
+                </ul>
+            </p>
+            <h2>3、线宽</h2>
+            <p>
+                lineWidth 定义线的宽度(默认值为 1.0)。
+            </p>
+            <h2>4、笔触样式</h2>
+            <p>strokeStyle 定义线和形状边框的颜色和样式。</p>
+        </article>
+    </div>
+</body>
+</html>

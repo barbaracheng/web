@@ -1,0 +1,73 @@
+<!--
+ * @Author: leyuans
+ * @Date: 2021-05-29 20:48:25
+ * @LastEditTime: 2021-05-29 21:17:23
+ * @LastEditors: leyuans
+ * @Description: 
+ * @FilePath: \web-projects\Canvas绘图\线条的属性\lineCap.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lineCap的用法</title>
+    <style>
+        #canvas {
+            border:1px solid #aaa;
+            margin: 50px auto;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="canvas-wrap">
+        <canvas id="canvas" width="800" height="600">
+            您的浏览器不支持canvas，请升级浏览器或更换浏览器试试。
+        </canvas>
+    </div>
+
+    <script>
+        window.onload = function () {
+            var canvas = document.getElementById("canvas");
+            var ctx = canvas.getContext("2d");
+
+            ctx.lineWidth = 50;
+            ctx.strokeStyle = "#1BAAAA";
+
+            ctx.beginPath();
+            ctx.moveTo(100,100);
+            ctx.lineTo(700,100);
+            ctx.lineCap = "butt";
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.moveTo(100,300);
+            ctx.lineTo(700,300);
+            ctx.lineCap = "round";
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.moveTo(100,500);
+            ctx.lineTo(700,500);
+            ctx.lineCap = "square";
+            ctx.stroke();
+
+            //下面画两个基准线便于观察
+            ctx.lineWidth = 5;
+            ctx.strokeStyle = "black";
+
+            ctx.beginPath();
+            ctx.moveTo(100,0);
+            ctx.lineTo(100,600);
+            ctx.moveTo(700,0);
+            ctx.lineTo(700,600);
+            ctx.stroke();
+        }
+        
+
+
+    </script>
+</body>
+</html>

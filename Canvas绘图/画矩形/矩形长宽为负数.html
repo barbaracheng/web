@@ -1,0 +1,93 @@
+<!--
+ * @Author: leyuans
+ * @Date: 2021-05-29 18:38:50
+ * @LastEditTime: 2021-05-29 19:44:33
+ * @LastEditors: leyuans
+ * @Description: 
+ * @FilePath: \web-projects\Canvas绘图\画矩形\矩形长宽为负数.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rect()方法中，当width和height为负数时</title>
+    <style>
+        #canvas {
+            border: 2px solid #ccc;
+            margin: 50px auto;
+            display: block;
+        }
+        .tips {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            width: 200px;
+            border: 2px solid palevioletred;
+        }
+    </style>
+</head>
+<body>
+    <div class="tips">
+        <article>
+            <h2>tip</h2>
+            <p>
+                rect()方法包含四个参数：左上角的x轴坐标，左上角的y轴坐标，矩形宽度width，矩形高度height。
+                使用fill()矩形绘制时，默认充满整个矩形区域；
+                使用stroke()绘制矩形时，设置了lineWidth，而矩形的宽度和长度之前就已经确定了，
+                所以绘制边框的时候会挤占一些原本矩形的空间，边框的宽度有一半会挤压原本矩形的大小，另一半则往外扩展。
+                所以绘制出来的矩形的宽 = width + lineWidth，高 = height + lineWidth。
+                不过当矩形左上角的x或y轴坐标为0，则有只能看到一半的边框宽度，另一半已经超出了画布。
+            </p>
+            
+             
+        </article>
+    </div>
+    <div id="canvas-wrap">
+        <canvas id="canvas" width="800" height="600">
+            您的浏览器不支持canvas，请升级浏览器或更换浏览器试试。
+        </canvas>
+    </div>
+
+    <script>
+        var canvas = document.getElementById("canvas");
+        var ctx = canvas.getContext("2d");
+
+        ctx.beginPath();
+        ctx.rect(0,0,100,100);
+        ctx.strokeStyle = "black";
+        ctx.fillStyle = "yellow";
+        ctx.lineWidth = 10;
+        ctx.fill();
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.rect(120,0,100,100);
+        ctx.strokeStyle = "black";
+        ctx.fillStyle = "yellow";
+        ctx.lineWidth = 5;
+        ctx.fill();
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.rect(110,150,100,100);
+        ctx.fillStyle = "yellow";
+        ctx.fill();
+        
+
+        ctx.beginPath();
+        ctx.rect(0,150,100,100);
+        ctx.strokeStyle = "black";
+        ctx.fillStyle = "yellow";
+        ctx.lineWidth = 10;
+        ctx.fill();
+        ctx.stroke();
+
+        
+
+
+    </script>
+
+</body>
+</html>

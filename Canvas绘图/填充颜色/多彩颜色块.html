@@ -1,0 +1,40 @@
+<!--
+ * @Author: leyuans
+ * @Date: 2021-06-04 19:22:11
+ * @LastEditTime: 2021-06-04 22:20:02
+ * @LastEditors: leyuans
+ * @Description: 
+ * @FilePath: \web-projects\Canvas绘图\填充颜色\多彩颜色块.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>绘制调色盘</title>
+    <style>
+        #canvas {
+            border: 2px solid #cccccc;
+            margin: 10px auto;
+        }
+    </style>
+    <script>
+        function draw() {
+            let canvas = document.getElementById("canvas");
+            if (canvas.getContext) {
+                let ctx = canvas.getContext("2d");
+                for (let i = 0; i < 40; i++) {
+                    for (let j = 0; j < 40; j++) {
+                        ctx.fillStyle = 'rgb(' + parseInt(255-i*6) + ','+ parseInt(255-j*6) + ',' + parseInt(255-j*5) + ')';
+                        ctx.fillRect(j*10,i*10,10,10);
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body onload="draw();">
+    <canvas id="canvas" width="400" height="400"></canvas>
+</body>
+</html>

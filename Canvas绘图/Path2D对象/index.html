@@ -1,0 +1,62 @@
+<!--
+ * @Author: leyuans
+ * @Date: 2021-06-04 18:59:59
+ * @LastEditTime: 2021-06-04 19:13:14
+ * @LastEditors: leyuans
+ * @Description: 
+ * @FilePath: \web-projects\Canvas绘图\Path2D对象\index.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Path2D对象</title>
+    <style>
+        #canvas {
+            border: 1px solid black;
+        }
+    </style>
+    <script>
+        function draw() {
+            let canvas = document.getElementById("canvas");
+            if (canvas.getContext) {
+                let ctx = canvas.getContext("2d");
+
+                let rectangle = new Path2D();
+                rectangle.rect(10,10,50,50);
+
+                let circle = new Path2D();
+                circle.moveTo(125,35);
+                circle.arc(100,35,25,0,Math.PI*2);
+
+                /*这条路径将先移动到点 (M10 10) 然后再水平移动80个单位(h 80)，
+                然后下移80个单位 (v 80)，接着左移80个单位 (h -80)，再回到起点处 (z)。
+                */
+                let p = new Path2D("M10 80 h 60 v 60 h -60 Z");//使用SVG路径
+
+                ctx.stroke(rectangle);
+                ctx.fill(circle);
+                ctx.fill(p);
+            }
+        }
+    </script>
+</head>
+<body onload="draw();">
+    <h1>Path2D()</h1>
+    <p>Path2D()会返回一个新初始化的Path2D对象
+        （可能将某一个路径作为变量——创建一个它的副本，
+        或者将一个包含SVG path数据的字符串作为变量）。
+    </p>
+    <div>
+        <code>new Path2D(); //空的Path对象</code>
+        <code>new Path2D(path); //克隆Path对象</code>
+        <code>new Path2D(d); //从SVG建立Path对象</code>
+    </div>
+
+    <canvas id="canvas" width="150" height="150"></canvas>
+    
+    
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!--
+ * @Author: leyuans
+ * @Date: 2021-05-21 17:42:30
+ * @LastEditTime: 2021-05-22 16:48:45
+ * @LastEditors: leyuans
+ * @Description: 
+ * @FilePath: \web-projects\Canvas绘图\canvas.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>测试浏览器支不支持Canvas标签</title>
+    <style>
+        #canvas {
+            width: 800px;
+            height: 600px;
+            border: 1px solid #aaaaaa;
+            display: block;
+            margin: 50px auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="canvas-wrap">
+        <canvas id="canvas">你的浏览器不支持canvas，记得换一个更高级别的浏览器哦。</canvas>
+    </div>
+    <script>
+        window.onload = function () {
+            var canvas = document.getElementById("canvas"); // 获取画布
+            var context = canvas.getContext("2d"); //获取画笔
+        }
+    </script>
+
+</body>
+</html>

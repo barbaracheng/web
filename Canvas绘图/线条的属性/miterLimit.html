@@ -1,0 +1,72 @@
+<!--
+ * @Author: leyuans
+ * @Date: 2021-05-29 21:40:09
+ * @LastEditTime: 2021-05-29 21:50:16
+ * @LastEditors: leyuans
+ * @Description: 
+ * @FilePath: \web-projects\Canvas绘图\线条的属性\miterLimit.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>miterLimit</title>
+    <style>
+        #canvas {
+            border: 1px solid #cccccc;
+            display: block;
+            margin: 50px auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="canvas-wrap">
+        <canvas id="canvas" width="800" height="600">
+            您的浏览器不支持canvas，请升级浏览器或更换浏览器试试。
+        </canvas>
+    </div>
+
+    <script>
+        window.onload = function () {
+            var canvas = document.getElementById("canvas");
+            var context = canvas.getContext("2d");
+
+            // 实例1: 圆形端点,斜角连接,在画布左上角
+            context.beginPath();
+            context.moveTo(0,0);
+            context.lineTo(180,0);
+            context.lineTo(180,180);
+            context.lineJoin = "bevel";
+            context.lineCap = "round";
+            context.lineWidth = 10;
+            context.strokeStyle = "red";
+            context.stroke();
+
+            // 实例2: 圆形端点,斜角连接,不在画布左上角
+            context.beginPath();
+            context.moveTo(300,200);
+            context.lineTo(480,200);
+            context.lineTo(480,300);
+            context.lineJoin = "bevel";
+            context.lineCap = "round";
+            context.lineWidth = 10;
+            context.strokeStyle = "blue";
+            context.stroke();
+
+            // 实例3: 平直端点,圆形连接,不在画布左上角
+            context.beginPath();
+            context.moveTo(600,400);
+            context.lineTo(780,400);
+            context.lineTo(780,580);
+            context.lineJoin = 'round';
+            context.lineCap = 'butt';
+            context.lineWidth = 10;
+            context.strokeStyle = "black";
+            context.stroke();
+            
+        }
+    </script>
+</body>
+</html>

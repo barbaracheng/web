@@ -1,0 +1,40 @@
+<!--
+ * @Author: leyuans
+ * @Date: 2021-05-22 16:49:07
+ * @LastEditTime: 2021-05-22 17:06:14
+ * @LastEditors: leyuans
+ * @Description: 
+ * @FilePath: \web-projects\Canvas绘图\画线段\index.html
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>画线段</title>
+</head>
+<body>
+    <div id="canvas-wrap">
+        <canvas id="canvas" style="border: 1px solid #aaaaaa; display: block; margin: 50px auto;">
+            您的浏览器不支持canvas，请升级浏览器或更换更高级的浏览器来查看效果。
+        </canvas>
+    </div>
+    <script>
+        window.onload = function () {
+            var canvas = document.getElementById("canvas"); //获得画布
+            canvas.width = 800; //设置画布宽度，单位为px
+            canvas.height = 600; //设置画布高度，单位为px
+            var context = canvas.getContext("2d"); //获得画笔
+            //开始画线段啦
+            context.moveTo(100,100); //将画笔起点移到坐标为(100,100)的地方
+            context.lineTo(600,600); //将画笔的终点移到坐标为(600,600)的地方
+            context.lineWidth = 5; //设置画笔（线条）的粗细
+            context.strokeStyle = "#AA394C"; //设置画笔（线条）的颜色
+            context.stroke(); //描边
+
+        }
+    </script>
+</body>
+</html>
