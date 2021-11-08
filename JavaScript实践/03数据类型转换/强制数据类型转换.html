@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>强制数据类型转换</title>
+</head>
+<body>
+    <h1>Boolean()</h1>
+    <p>Boolean()可以将其他类型转换成布尔类型。</p>
+
+    <h1>Number()</h1>
+    <p>Number()可以将其他类型转换成数字类型。包括纯数字的字符串，布尔值，null。如果遇到非纯数字的字符串，则返回NaN。</p>
+
+    <h1>parseInt()</h1>
+    <p>parseInt()对于数字和以数字开头的字符串来说就是取整。其他情况返回NaN。</p>
+
+    <h1>parseFloat()</h1>
+    <p>parseFloat()同parseInt(),只不过是取浮点数。</p>
+    <script>
+        let tmp;
+        // tmp = Boolean('2');
+        // tmp = Boolean(1);
+        // tmp = Boolean(0);
+        // tmp = Boolean('aaa');
+        // tmp = Boolean('');
+        // tmp = Boolean(null);
+        // tmp = Boolean(undefined);
+
+        // tmp = Number('a');
+        // tmp = Number('23');
+        // tmp = Number('2.34');
+        // tmp = Number(true);
+        // tmp = Number(false);
+        // tmp = Number(null);
+        // tmp = Number(undefined);
+
+        // tmp = parseInt('a23');
+        // tmp = parseInt('2.3a');
+        // tmp = parseInt('2.3');
+        // tmp = parseInt(true);
+        // tmp = parseInt(false);
+        // tmp = parseInt(null);
+        // tmp = parseInt(undefined);
+
+
+        // alert(tmp);
+
+    </script>
+</body>
+</html>
